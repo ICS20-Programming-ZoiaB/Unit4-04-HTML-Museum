@@ -6,6 +6,9 @@
 
 "use strict"
 
+// add an event listener to the button
+document.getElementById("check").addEventListener("click", infoSent);
+
 function infoSent() {
 
  //initializing variables
@@ -31,8 +34,23 @@ function infoSent() {
    cost = "You get a student discount.";
  }
 
+  //else if: if user does not enter age tell them to please enter age
+ else if (isEmpty(userAge)) {
+   cost = "Please enter age.";
+ }
+
+  //else if: if user does not enter a day of the week
+ else if (day == "Day of week") {
+   cost = "Please enter a day of the week.";
+ }
+
+  //else if: if user enters a negative integer for their age
+ else if (userAge<0) {
+   cost = "Please enter a valid age.";
+ }
+
  else {
-   cost = "You are not eligible for a discount and must pay the full price";
+   cost = "You are not eligible for a discount and must pay the full price.";
  }
 
  //displaying the appropriate cost to the screen
