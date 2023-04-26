@@ -1,4 +1,3 @@
-
 // Copyright (c) 2023 ZoiaB. All rights reserved.
 //
 // Created by: ZoiaB
@@ -27,29 +26,29 @@ function infoSent() {
  const STUDENT_MINIMUM = 12;
  const STUDENT_MAXIMUM = 21;
 
- //using compound if statements to determine cost
- if ((userAge < CHILD_FREE) || (userAge > ELDERLY_FREE)) {
-   cost = "You can visit the museum for free!";
+    //if: if user enters a negative integer for their age
+if (userAge < 0) {
+   cost = "Please enter a valid age.";
  }
 
- //Added extra brackets around all conditions to fix error - the computer was not processing the || (or) symbol when it was outside of brackets
- else if (((userAge >= STUDENT_MINIMUM) && (userAge <= STUDENT_MAXIMUM)) || ((day == "Thursday") || (day == "Tuesday"))) {
-   cost = "You get a student discount.";
- }
-
-  //else if: if user does not enter age tell them to please enter age
+    //else if: if user does not enter age tell them to please enter age
  else if (isEmpty(userAge)) {
    cost = "Please enter age.";
  }
 
-  //else if: if user does not enter a day of the week
+     //else if: if user does not enter a day of the week
  else if (day == "Day of week") {
    cost = "Please enter a day of the week.";
  }
+  
+ //using compound if statements to determine cost
+ else if ((userAge < CHILD_FREE) || (userAge > ELDERLY_FREE)) {
+   cost = "You can visit the museum for free!";
+ }
 
-  //else if: if user enters a negative integer for their age
- else if (userAge < 0) {
-   cost = "Please enter a valid age.";
+ //elseif: if age is between 12 and 21 OR the day is Tuesday or Thursday.
+ else if (((userAge >= STUDENT_MINIMUM) && (userAge <= STUDENT_MAXIMUM)) || ((day == "Thursday") || (day == "Tuesday"))) {
+   cost = "You get a student discount.";
  }
 
  else {
